@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: spaceman
+rules:
+- apiGroups:
+  - ""
+  resourceNames:
+  - $(CM_NAME)
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
