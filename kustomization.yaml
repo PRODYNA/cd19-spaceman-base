@@ -12,3 +12,15 @@ configMapGenerator:
 - name: spaceman
   files:
   - config-files/nginx.conf
+
+vars:
+- name: CM_NAME
+  objref:
+    apiVersion: v1
+    kind: ConfigMap
+    name: spaceman
+  fieldref:
+    fieldpath: metadata.name
+
+configurations:
+- kustomizeconfig/varreference.yaml
